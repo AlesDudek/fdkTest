@@ -3,6 +3,7 @@
 <head>
     <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
     <link rel="stylesheet" href="/css/fdkHome.css">
+    <link rel="stylesheet" href="./css/mojeprojekty.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FDK List</title>
@@ -39,7 +40,7 @@
                             <a href="./mojeprojekty.html" class="dropdown-link">Moje projekty</a>
                         </li>
                         <li>
-                            <a href="./mojeprojekty.html" class="dropdown-link">Vytvořít Projekt</a>
+                            <a href="#" class="dropdown-link">Vytvořít Projekt</a>
                         </li>
                     </ul>
                 </li>
@@ -164,7 +165,7 @@
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3> Projekty</h3>
+                            <h3> Moje projekty</h3>
                             <button>
                                 Zobrazit vše
                                 <span class="las la-arrow-right">
@@ -186,16 +187,31 @@
                                             <td>
                                                 Stav
                                             </td>
+                                            <td>Akce</td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>UI/UX Design</td>
+                                        <tr class="dropdown-item">
+                                            <td>
+                                                UI/UX Design
+                                            </td>
                                             <td>UI Team</td>
                                             <td>
                                                 <span class="status purple"></span>
                                                 testing
                                             </td>
+                                            <td><ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon></td>
+                                        </tr>
+                                        <tr class="dropdown-content">
+                                            <td colspan="4">
+                                                <div class="text-wrapper">
+                                                    <h4>Popis úkolu:</h4>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, maiores eum impedit aliquam ex ut! Repudiandae pariatur maiores tempora corporis quas magnam qui placeat in quos rerum minus perspiciatis veritatis natus, tempore consectetur quia et consequatur laborum similique ea voluptates, ipsa neque iusto dignissimos! Asperiores obcaecati laboriosam laborum ipsa aspernatur?
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>Web develop</td>
@@ -571,6 +587,7 @@
         </main>
     </div>
     <script src="./js/fdkHome.js"></script>
+    <script src="./js/mojeprojekty.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
