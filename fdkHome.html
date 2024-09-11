@@ -12,39 +12,88 @@
     <div class="sidebar">
         <div class="sidebar-brand">
             <h2>
-                <span class="lab la-accusoft"></span>
+                <!-- <span class="lab la-accusoft"></span> -->
+                <ion-icon name="library-outline"></ion-icon>
                 <span>FDK</span>
             </h2>
         </div>
-        <div class="sidebar-menu">
+        <div class="sidebar-menu" id="nav-menu">
             <ul>
                 <li>
                     <a href="#" class="active">
-                        <span class="las la-igloo"></span>
+                        <!-- <span class="las la-igloo"></span> -->
+                        <span>
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
                         <span>Domů</span>
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                        <span class="las la-clipboard-list"></span>
-                        <span>Moje Projekty</span>
-                    </a>
+                <li class="dropdown-item">
+                    <div class="nav-link">
+                        <ion-icon name="newspaper-outline" class="icon-li"></ion-icon>
+                        <span class="nav_link-span">Projekty</span>
+                        <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="./mojeprojekty.html" class="dropdown-link">Moje projekty</a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-link">Vytvořít Projekt</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown-item">
+                    <div class="nav-link">
+                        <ion-icon name="clipboard-outline" class="icon-li"></ion-icon>
+                        <span class="nav_link-span">Ukol</span>
+                        <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" class="dropdown-link">Moje úkoly</a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-link">Vytvořit úkol</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown-item">
+                    <div class="nav-link">
+                        <ion-icon name="file-tray-full-outline" class="icon-li"></ion-icon>
+                        <span class="nav_link-span">Seznam</span>
+                        <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" class="dropdown-link">Moje seznamy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-link">Vytvořit seznam</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="">
-                        <span class="las la-shopping-bag"></span>
-                        <span>Založení Projektu</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="las la-users"></span>
+                        <span class="">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
                         <span>Nastavení</span>
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <span class="las la-receipt"></span>
+                        <span class="">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </span>
+                        <span>Kontakty</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="">
+                            <ion-icon name="log-in-outline"></ion-icon>
+                        </span>
                         <span>Odhlášení</span>
                     </a>
                 </li>
@@ -312,6 +361,139 @@
                                     <span class="las la-phone"></span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3> Ukoly</h3>
+                            <button>
+                                Zobrazit vše
+                                <span class="las la-arrow-right">
+
+                                </span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                Název projektu
+                                            </td>
+                                            <td>
+                                                Oddělení
+                                            </td>
+                                            <td>
+                                                Stav
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>UI/UX Design</td>
+                                            <td>UI Team</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                testing
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Web develop</td>
+                                            <td>Front-end</td>
+                                            <td>
+                                                <span class="status pink"></span>
+                                                v progresu
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Server develop</td>
+                                            <td>Back-end</td>
+                                            <td>
+                                                <span class="status orange"></span>
+                                                zastaveno
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>UI/UX Design</td>
+                                            <td>UI Team</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                testing
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Web develop</td>
+                                            <td>Front-end</td>
+                                            <td>
+                                                <span class="status pink"></span>
+                                                v progresu
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Server develop</td>
+                                            <td>Back-end</td>
+                                            <td>
+                                                <span class="status orange"></span>
+                                                zastaveno
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>UI/UX Design</td>
+                                            <td>UI Team</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                testing
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Web develop</td>
+                                            <td>Front-end</td>
+                                            <td>
+                                                <span class="status pink"></span>
+                                                v progresu
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Server develop</td>
+                                            <td>Back-end</td>
+                                            <td>
+                                                <span class="status orange"></span>
+                                                zastaveno
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="customers">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3> Seznamy </h3>
+                            <button>
+                                Zobrazit vše
+                                <span class="las la-arrow-right"></span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./img/person2.jpeg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Aleš Dudek</h4>
+                                        <small>FE - Desinger</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
                             <div class="customer">
                                 <div class="info">
                                     <img src="./img/person1.jpeg" width="40px" height="40px" alt="">
@@ -368,11 +550,28 @@
                                     <span class="las la-phone"></span>
                                 </div>
                             </div>
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./img/person2.jpeg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Aleš Dudek</h4>
+                                        <small>FE - Desinger</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
+    <script src="./js/fdkHome.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
