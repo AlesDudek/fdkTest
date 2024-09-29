@@ -143,10 +143,13 @@
 #nav-toggle:checked + .sidebar .sidebar-brand h2 span:last-child, #nav-toggle:checked + .sidebar li a span:last-child,
 #nav-toggle:checked + .sidebar li .nav-link span,
 #nav-toggle:checked + .sidebar li .nav-link .dropdown-arrow,
-#nav-toggle:checked + .sidebar li .dropdown-menu .dropdown-link,
-#nav-toggle:checked + .sidebar li .dropdown-menu li:hover{
+#nav-toggle:checked + .sidebar li .dropdown-menu .dropdown-link{
     display: none;
 }
+#nav-toggle:checked + .sidebar li .dropdown-menu{
+    display: none;
+}
+
 #nav-toggle:checked ~ .main-content{
     margin-left: 70px;
 }
