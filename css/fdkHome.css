@@ -127,8 +127,7 @@
 #nav-toggle:checked + .sidebar{
     width: 70px;
 }
-#nav-toggle:checked + .sidebar .sidebar-brand .sidebar-menu,
-#nav-toggle:checked + .sidebar li,#nav-toggle:checked + .sidebar li .nav-link{
+#nav-toggle:checked + .sidebar .sidebar-brand .sidebar-menu{
     padding-left: 1rem;
     text-align: center;
 }
@@ -142,13 +141,10 @@
 
 #nav-toggle:checked + .sidebar .sidebar-brand h2 span:last-child, #nav-toggle:checked + .sidebar li a span:last-child,
 #nav-toggle:checked + .sidebar li .nav-link span,
-#nav-toggle:checked + .sidebar li .nav-link .dropdown-arrow,
-#nav-toggle:checked + .sidebar li .dropdown-menu .dropdown-link{
+#nav-toggle:checked + .sidebar li .nav-link .dropdown-arrow{
     display: none;
 }
-#nav-toggle:checked + .sidebar li .dropdown-menu{
-    display: none;
-}
+
 
 #nav-toggle:checked ~ .main-content{
     margin-left: 70px;
@@ -364,46 +360,6 @@ tr td:last-child{
 /*Střed těla Střed KONEC*/
 
 /*Responzivita*/
-@media (max-width:1200px) {
-    /* .sidebar{
-        width: 70px;
-    }
-    .sidebar .sidebar-brand .sidebar-brand,
-    .sidebar li {
-        padding-left: 1rem;
-        text-align: center;
-    }
-    .sidebar li a{
-        padding-left: 0rem;
-    }
-    
-    .sidebar .sidebar-brand h2 span:last-child, .sidebar li a span:last-child{
-        display: none;
-    } */
-    /* .main-content{
-        margin-left: 70px;
-    }
-    .main-content header{
-        width: calc(100% - 70px);
-        left: 70px;
-    } */
-    /* .sidebar:hover{
-        width: 345px;
-        z-index: 200;
-    }
-    .sidebar:hover .sidebar-brand .sidebar-brand,
-    .sidebar:hover li {
-        padding-left: 2rem;
-        text-align: left;
-    }
-    .sidebar:hover li a{
-        padding-left: 1rem;
-    }
-    .sidebar:hover .sidebar-brand h2 span:last-child,
-    .sidebar:hover li a span:last-child{
-        display: inline;
-    } */
-}
 
 @media (max-width:960px) {
     .cards{
@@ -412,7 +368,6 @@ tr td:last-child{
     .recent-grid{
         grid-template-columns: 60% 40%;
     }
-    
 }
 @media (max-width:768px) {
     .cards{
@@ -483,6 +438,9 @@ tr td:last-child{
 @media (max-width: 560px) {
     .cards{
         grid-template-columns: 100%;
+    }
+    .user-wrapper{
+        flex-direction: column;
     }
 }
 /*Responzivita Konec*/
