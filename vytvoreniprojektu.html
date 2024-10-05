@@ -6,38 +6,36 @@
     <link rel="stylesheet" href="./css/vytvorebiprojektu.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FDK List</title>
+    <title>Vytvořění Projektu</title>
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
             <h2>
-                <!-- <span class="lab la-accusoft"></span> -->
                 <ion-icon name="library-outline"></ion-icon>
                 <span>FDK</span>
             </h2>
         </div>
         <div class="sidebar-menu" id="nav-menu">
             <ul>
-                <li>
-                    <a href="./fdkHome.html" class="active">
-                        <!-- <span class="las la-igloo"></span> -->
-                        <span>
-                            <ion-icon name="home-outline"></ion-icon>
-                        </span>
-                        <span>Domů</span>
-                    </a>
+                <li class="dropdown-item">
+                    <div class=" nav-link nav-link-option">
+                        <ion-icon name="home-outline" class="icon-li"></ion-icon>
+                        <a href="./fdkHome.html">
+                            <span class="nav_link-span" style="font-size: 1.1rem;">Domů</span>
+                        </a>
+                    </div>
                 </li>
                 <li class="dropdown-item">
-                    <div class="nav-link">
+                    <div class="nav-link nav-link-option">
                         <ion-icon name="newspaper-outline" class="icon-li"></ion-icon>
                         <span class="nav_link-span">Projekty</span>
                         <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
                     </div>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="./mojeprojekty.html" class="dropdown-link">Moje projekty</a>
+                            <a href="./mojeprojekty.html" class="dropdown-link ">Moje projekty</a>
                         </li>
                         <li>
                             <a href="./vytvoreniprojektu.html" class="dropdown-link">Vytvořít Projekt</a>
@@ -45,14 +43,14 @@
                     </ul>
                 </li>
                 <li class="dropdown-item">
-                    <div class="nav-link">
+                    <div class="nav-link nav-link-option">
                         <ion-icon name="clipboard-outline" class="icon-li"></ion-icon>
                         <span class="nav_link-span">Úkoly</span>
                         <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
                     </div>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#" class="dropdown-link">Moje úkoly</a>
+                            <a href="./mojeUkoly.html" class="dropdown-link">Moje úkoly</a>
                         </li>
                         <li>
                             <a href="#" class="dropdown-link">Vytvořit úkol</a>
@@ -60,7 +58,7 @@
                     </ul>
                 </li>
                 <li class="dropdown-item">
-                    <div class="nav-link">
+                    <div class="nav-link nav-link-option">
                         <ion-icon name="file-tray-full-outline" class="icon-li"></ion-icon>
                         <span class="nav_link-span">Seznamy</span>
                         <ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon>
@@ -74,29 +72,29 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="">
-                        <span class="">
-                            <ion-icon name="settings-outline"></ion-icon>
-                        </span>
-                        <span>Nastavení</span>
-                    </a>
+                <li class="dropdown-item">
+                    <div class="nav-link nav-link-option">
+                        <ion-icon name="settings-outline" class="icon-li"></ion-icon>
+                        <a href="#">
+                            <span class="nav_link-span" style="font-size: 1.1rem;">Nastavení</span>
+                        </a>
+                    </div>
                 </li>
-                <li>
-                    <a href="">
-                        <span class="">
-                            <ion-icon name="call-outline"></ion-icon>
-                        </span>
-                        <span>Kontakty</span>
-                    </a>
+                <li class="dropdown-item">
+                    <div class="nav-link nav-link-option">
+                        <ion-icon name="call-outline" class="icon-li"></ion-icon>
+                        <a href="#">
+                            <span class="nav_link-span" style="font-size: 1.1rem;">Kontakty</span>
+                        </a>
+                    </div>
                 </li>
-                <li>
-                    <a href="">
-                        <span class="">
-                            <ion-icon name="log-in-outline"></ion-icon>
-                        </span>
-                        <span>Odhlášení</span>
-                    </a>
+                <li class="dropdown-item">
+                    <div class="nav-link nav-link-option">
+                        <ion-icon name="log-in-outline" class="icon-li"></ion-icon>
+                        <a href="">
+                            <span class="nav_link-span" style="font-size: 1.1rem;">Odhlášení</span>
+                        </a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -107,7 +105,7 @@
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                Moje práce
+                Vytvoření projektu
             </h2>
             <div class="search-wrapper">
                 <span class="las la-search">
@@ -165,7 +163,7 @@
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Nový projekt</h3>
+                            <h3>Vytvořit projekt</h3>
                         </div>
                         <div class="card-body">
                             <div class="todo-app">
@@ -175,6 +173,17 @@
                                     <button>Přidat</button>
                                 </div>
                                 <div class="drop-menu">
+                                    <div class="drop_menu">
+                                        <div class="select">
+                                            <span class="selected">Projekt</span>
+                                            <div class="caret"></div>
+                                        </div>
+                                        <ul class="dropdown-name">
+                                            <li>Lenovo</li>
+                                            <li>Žižka</li>
+                                            <li>FDK</li>
+                                        </ul>
+                                    </div>
                                     <div class="drop_menu">
                                         <div class="select">
                                             <span class="selected">Název</span>
@@ -211,6 +220,7 @@
                                             <li>zastaveno</li>
                                         </ul>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

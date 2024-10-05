@@ -3,17 +3,16 @@
 <head>
     <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
     <link rel="stylesheet" href="/css/fdkHome.css">
-    <link rel="stylesheet" href="./css/mojeprojekty.css">
+    <link rel="stylesheet" href="./css/mojeUkoly.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moje projekty</title>
+    <title>Moje Úkoly</title>
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
             <h2>
-                <!-- <span class="lab la-accusoft"></span> -->
                 <ion-icon name="library-outline"></ion-icon>
                 <span>FDK</span>
             </h2>
@@ -106,7 +105,7 @@
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                Moje projekty
+                Moje Úkoly
             </h2>
             <div class="search-wrapper">
                 <span class="las la-search">
@@ -164,17 +163,16 @@
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3> Moje projekty</h3>
-                            <button class="toggleTasksButton">
+                            <h3> Úkoly</h3>
+                            <button>
                                 Zobrazit vše
                                 <span class="las la-arrow-right">
-
                                 </span>
                             </button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="taskTable" width="100%">
+                                <table width="100%">
                                     <thead>
                                         <tr>
                                             <td>
@@ -184,39 +182,27 @@
                                                 Oddělení
                                             </td>
                                             <td>
+                                                Jméno
+                                            </td>
+                                            <td>
                                                 Stav
                                             </td>
-                                            <td>Popis</td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="dropdown-item">
-                                            <td>
-                                                UI/UX Design
-                                            </td>
+                                        <tr>
+                                            <td>UI/UX Design</td>
                                             <td>UI Team</td>
+                                            <td>Lenka</td>
                                             <td>
                                                 <span class="status purple"></span>
                                                 testing
-                                            </td>
-                                            <td><ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon></td>
-                                        </tr>
-                                        <tr class="dropdown-content">
-                                            <td colspan="4">
-                                                <div class="text-wrapper">
-                                                    <h4>Popis úkolu:</h4>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, maiores eum impedit aliquam ex ut! Repudiandae pariatur maiores tempora corporis quas magnam qui placeat in quos rerum minus perspiciatis veritatis natus, tempore consectetur quia et consequatur laborum similique ea voluptates, ipsa neque iusto dignissimos! Asperiores obcaecati laboriosam laborum ipsa aspernatur?
-                                                    </p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <button>ok</button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Web develop</td>
                                             <td>Front-end</td>
+                                            <td>Aleš</td>
                                             <td>
                                                 <span class="status pink"></span>
                                                 v progresu
@@ -225,6 +211,7 @@
                                         <tr>
                                             <td>Server develop</td>
                                             <td>Back-end</td>
+                                            <td>Ionno</td>
                                             <td>
                                                 <span class="status orange"></span>
                                                 zastaveno
@@ -233,6 +220,7 @@
                                         <tr>
                                             <td>UI/UX Design</td>
                                             <td>UI Team</td>
+                                            <td>Barča</td>
                                             <td>
                                                 <span class="status purple"></span>
                                                 testing
@@ -241,6 +229,7 @@
                                         <tr>
                                             <td>Web develop</td>
                                             <td>Front-end</td>
+                                            <td>Wendy</td>
                                             <td>
                                                 <span class="status pink"></span>
                                                 v progresu
@@ -249,6 +238,7 @@
                                         <tr>
                                             <td>Server develop</td>
                                             <td>Back-end</td>
+                                            <td>Martin</td>
                                             <td>
                                                 <span class="status orange"></span>
                                                 zastaveno
@@ -257,6 +247,7 @@
                                         <tr>
                                             <td>UI/UX Design</td>
                                             <td>UI Team</td>
+                                            <td>Lenka</td>
                                             <td>
                                                 <span class="status purple"></span>
                                                 testing
@@ -265,6 +256,7 @@
                                         <tr>
                                             <td>Web develop</td>
                                             <td>Front-end</td>
+                                            <td>Wendy</td>
                                             <td>
                                                 <span class="status pink"></span>
                                                 v progresu
@@ -273,81 +265,10 @@
                                         <tr>
                                             <td>Server develop</td>
                                             <td>Back-end</td>
+                                            <td>Ionno</td>
                                             <td>
                                                 <span class="status orange"></span>
                                                 zastaveno
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                testing
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web develop</td>
-                                            <td>Front-end</td>
-                                            <td>
-                                                <span class="status pink"></span>
-                                                v progresu
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Server develop</td>
-                                            <td>Back-end</td>
-                                            <td>
-                                                <span class="status orange"></span>
-                                                zastaveno
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                testing
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web develop</td>
-                                            <td>Front-end</td>
-                                            <td>
-                                                <span class="status pink"></span>
-                                                v progresu
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Server develop</td>
-                                            <td>Back-end</td>
-                                            <td>
-                                                <span class="status orange"></span>
-                                                zastaveno
-                                            </td>
-                                        </tr>
-                                        <tr class="dropdown-item">
-                                            <td>
-                                                UI/UX Design
-                                            </td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                testing
-                                            </td>
-                                            <td><ion-icon name="chevron-down-outline" class="dropdown-arrow"></ion-icon></td>
-                                        </tr>
-                                        <tr class="dropdown-content">
-                                            <td colspan="4">
-                                                <div class="text-wrapper">
-                                                    <h4>Popis úkolu:</h4>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, maiores eum impedit aliquam ex ut! Repudiandae pariatur maiores tempora corporis quas magnam qui placeat in quos rerum minus perspiciatis veritatis natus, tempore consectetur quia et consequatur laborum similique ea voluptates, ipsa neque iusto dignissimos! Asperiores obcaecati laboriosam laborum ipsa aspernatur?
-                                                    </p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <button>ok</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -457,7 +378,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3> Ukoly</h3>
-                            <button class="toggleTasksButton">
+                            <button id="toggleTasksButton">
                                 Zobrazit vše
                                 <span class="las la-arrow-right">
 
@@ -466,7 +387,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="taskTable" width="100%">
+                                <table width="100%">
                                     <thead>
                                         <tr>
                                             <td>
@@ -480,7 +401,7 @@
                                             </td>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="taskTableBody">
                                         <tr>
                                             <td>UI/UX Design</td>
                                             <td>UI Team</td>
@@ -732,7 +653,7 @@
         </main>
     </div>
     <script src="./js/fdkHome.js"></script>
-    <script src="./js/mojeprojekty.js"></script>
+    <script src="./js/mojeUkoly.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

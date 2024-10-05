@@ -14,6 +14,9 @@
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
 }
+button{
+    cursor: pointer;
+}
 /* Levá strana Menu */
 .sidebar{
     width: 345px;
@@ -30,10 +33,7 @@
     padding: 1rem 0rem 1rem 2rem;
     color: #fff;
 }
-/* .sidebar-brand span{
-    display: inline-block;
-    padding-right: 1rem;
-} */
+
 .sidebar-brand h2 ion-icon{
     display: inline-block;
     padding-right: 1rem;
@@ -50,7 +50,7 @@
 
 .sidebar-menu a{
     display: block;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
     color: #fff;
     font-size: 1.1rem;
 }
@@ -71,8 +71,20 @@
     color: #fff;
     padding: 1.25rem 1.5rem;
 }
+.nav-link-option{
+    display: grid;
+    grid-template-columns: 25px 1fr 1fr;
+    grid: 10px;
+    text-align: center;
+}
+
+
 .nav-link .icon-li{
     font-size: 1.5rem;
+    padding-right: 1rem;
+}
+.nav-link a .nav_link-span{
+    font-size: 1.1rem;
     padding-right: 1rem;
 }
 .nav-link .nav_link-span{
@@ -139,7 +151,8 @@
 }
 
 
-#nav-toggle:checked + .sidebar .sidebar-brand h2 span:last-child, #nav-toggle:checked + .sidebar li a span:last-child,
+#nav-toggle:checked + .sidebar .sidebar-brand h2 span:last-child,
+#nav-toggle:checked + .sidebar li a span:last-child,
 #nav-toggle:checked + .sidebar li .nav-link span,
 #nav-toggle:checked + .sidebar li .nav-link .dropdown-arrow{
     display: none;
@@ -356,12 +369,14 @@ tr td:last-child{
     margin-left: .5rem;
     color: var(--main-color);
 }
+.taskTable tbody tr:nth-child(n+10) {
+    display: none;
+}
 
 /*Střed těla Střed KONEC*/
 
 /*Responzivita*/
-
-@media (max-width:960px) {
+@media (max-width:1157px) {
     .cards{
         grid-template-columns: repeat(3, 1fr);
     }
@@ -369,6 +384,15 @@ tr td:last-child{
         grid-template-columns: 60% 40%;
     }
 }
+
+/* @media (max-width:960px) {
+    .cards{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .recent-grid{
+        grid-template-columns: 60% 40%;
+    }
+} */
 @media (max-width:768px) {
     .cards{
         grid-template-columns: repeat(2, 1fr);
@@ -428,7 +452,9 @@ tr td:last-child{
         padding-left: 1rem;
     }
     #nav-toggle:checked + .sidebar .sidebar-brand h2 span:last-child,
-    #nav-toggle:checked +.sidebar li a span:last-child{
+    #nav-toggle:checked +.sidebar li a span:last-child,
+    #nav-toggle:checked + .sidebar li .nav-link span,
+    #nav-toggle:checked + .sidebar li .nav-link .dropdown-arrow{
         display: inline;
     }
     #nav-toggle:checked ~ .main-content{

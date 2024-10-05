@@ -1,10 +1,4 @@
-/* .todo-app{
-    width: 100%;
-    max-width: 540px;
-    margin: 10px auto 20px;
-    padding: 10px 30px 70px;
-    border-radius: 10px;
-} */
+
 /**/
 .row{
     display: flex;
@@ -14,6 +8,10 @@
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
+}
+.todo-app{
+    width: 100%;
+    flex-wrap: wrap-reverse;
 }
 textarea{
     flex: 1;
@@ -33,12 +31,18 @@ button{
     cursor: pointer;
     border-radius: 40px;
 }
-.drop-menu{
+/* .drop-menu{
     display: flex;
     min-width: 11.2rem;
     position: relative;
     margin: 1.5rem;
     gap: 20px;
+} */
+.drop-menu{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
 }
 .select{
     background: #2a2f3b;
@@ -102,18 +106,30 @@ button{
     display: block;
     opacity: 1;
 }
-@media (max-width: 560px) {
+@media (max-width: 1070px) {
     .drop-menu{
-        flex-direction: column;
+        grid-template-columns: repeat(3,1fr);
     }
+}
+@media (max-width: 953px) {
+    .drop-menu{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 888px) {
     button{
-        padding: 8px 25px;
+        padding: 16px 25px;
 
     }
 }
+@media (max-width: 560px) {
+    .drop-menu{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
 @media (max-width: 400px) {
-    button{
-        padding: 8px 25px;
-        font-size: 12px;
+    .drop-menu{
+        grid-template-columns: repeat(1,1fr);
     }
 }

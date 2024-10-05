@@ -1,15 +1,4 @@
-// document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
-//     arrow.addEventListener('click', function () {
-//       const dropdownContent = this.closest('tr').nextElementSibling;
-//       if (dropdownContent.style.display === "table-row") {
-//         dropdownContent.style.display = "none";
-//         this.name = "chevron-down-outline"; // Změnit ikonu zpět na šipku dolů
-//       } else {
-//         dropdownContent.style.display = "table-row";
-//         this.name = "chevron-up-outline"; // Změnit ikonu na šipku nahoru
-//       }
-//     });
-//   });
+/*
 document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
   arrow.addEventListener('click', function () {
       const dropdownContent = this.closest('tr').nextElementSibling;
@@ -24,4 +13,25 @@ document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
           }
       }
   });
+});
+*/
+// Vyhledání všech řádků s šipkami
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+// Přidání event listeneru pro každý řádek
+dropdownItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // Najdi sousední řádek (dropdown-content)
+        const contentRow = item.nextElementSibling;
+
+        // Zkontroluj, zda je již viditelný, a změň styl display
+        if (contentRow.style.display === 'table-row') {
+            contentRow.style.display = 'none';
+        } else {
+            contentRow.style.display = 'table-row';
+        }
+
+        // Přidat/odebrat třídu pro otočení šipky
+        item.classList.toggle('open');
+    });
 });
