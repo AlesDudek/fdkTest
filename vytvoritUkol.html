@@ -3,10 +3,10 @@
 <head>
     <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
     <link rel="stylesheet" href="/css/fdkHome.css">
-    <link rel="stylesheet" href="./css/vytvorebiprojektu.css">
+    <link rel="stylesheet" href="./css/vytvoritUkol.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vytvořění Projektu</title>
+    <title>Vytvořění Úkolu</title>
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">
@@ -53,7 +53,7 @@
                             <a href="./mojeUkoly.html" class="dropdown-link">Moje úkoly</a>
                         </li>
                         <li>
-                            <a href="/vytvoritUkol.html" class="dropdown-link">Vytvořit úkol</a>
+                            <a href="./vytvoritUkol.html" class="dropdown-link">Vytvořit úkol</a>
                         </li>
                     </ul>
                 </li>
@@ -105,7 +105,7 @@
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                Vytvoření projektu
+                Vytvoření Úkolu
             </h2>
             <div class="search-wrapper">
                 <span class="las la-search">
@@ -163,16 +163,21 @@
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Vytvořit projekt</h3>
+                            <h2>Vytvořit úkol</h2>
                         </div>
-                        <div class="card-body">
-                            <div class="todo-app">
+                        <div class="card_body">
+                            <div class="todo_app">
                                 <h2>Přidání požadavku</h2>
                                 <div class="row">
-                                    <textarea type="text" id="input-box" placeholder="zadej text"></textarea>
-                                    <button>Přidat</button>
+                                    <input type="text" id="input-box" placeholder="zadej text"></input>
+                                    <button onclick="addTask()">Přidat</button>
                                 </div>
-                                <div class="drop-menu">
+                                <ul id="list-container">
+                                    <!-- <li class="checked">Task1</li>
+                                    <li>Task2</li>
+                                    <li>Task3</li> -->
+                                </ul>
+                                <!-- <div class="drop-menu">
                                     <div class="drop_menu">
                                         <div class="select">
                                             <span class="selected">Projekt</span>
@@ -220,7 +225,7 @@
                                             <li>zastaveno</li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -354,7 +359,7 @@
         </main>
     </div>
     <script src="./js/fdkHome.js"></script>
-    <script src="./js/vytvoreniprojektu.js"></script>
+    <script src="./js/vytvoritUkol.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

@@ -67,3 +67,25 @@ toggleButtons.forEach((button, index) => {
         }
     });
 });
+/*zobrazeni kolegove a kontakty*/
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButtons = document.querySelectorAll('.toggle-button');
+
+    toggleButtons.forEach(function(button) {
+        button.addEventListener('click', function () {
+            // Najdeme rodičovský prvek tlačítka, který obsahuje seznam kolegů
+            const customerList = this.closest('.card').querySelector('.customer-list');
+
+            if (customerList) {
+                customerList.classList.toggle('show-all');
+
+                // Změna textu tlačítka po kliknutí
+                if (this.textContent.includes('Zobrazit vše')) {
+                    this.innerHTML = 'Skrýt vše <span class="las la-arrow-right"></span>';
+                } else {
+                    this.innerHTML = 'Zobrazit vše <span class="las la-arrow-right"></span>';
+                }
+            }
+        });
+    });
+});

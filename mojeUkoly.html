@@ -53,7 +53,7 @@
                             <a href="./mojeUkoly.html" class="dropdown-link">Moje úkoly</a>
                         </li>
                         <li>
-                            <a href="#" class="dropdown-link">Vytvořit úkol</a>
+                            <a href="./vytvoritUkol.html" class="dropdown-link">Vytvořit úkol</a>
                         </li>
                     </ul>
                 </li>
@@ -164,7 +164,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3> Úkoly</h3>
-                            <button>
+                            <button class="toggleTasksButton">
                                 Zobrazit vše
                                 <span class="las la-arrow-right">
                                 </span>
@@ -172,7 +172,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table width="100%">
+                                <table class="taskTable" width="100%">
                                     <thead>
                                         <tr>
                                             <td>
@@ -189,7 +189,7 @@
                                             </td>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="taskTableBody">
                                         <tr>
                                             <td>UI/UX Design</td>
                                             <td>UI Team</td>
@@ -281,12 +281,40 @@
                     <div class="card">
                         <div class="card-header">
                             <h3> Kolegové </h3>
-                            <button>
+                            <button class="toggle-button">
                                 Zobrazit vše
                                 <span class="las la-arrow-right"></span>
                             </button>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body customer-list">
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./img/person2.jpeg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Aleš Dudek</h4>
+                                        <small>FE - Desinger</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./img/person1.jpeg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Lenka</h4>
+                                        <small>Desinger</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
                             <div class="customer">
                                 <div class="info">
                                     <img src="./img/person2.jpeg" width="40px" height="40px" alt="">
@@ -378,7 +406,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3> Ukoly</h3>
-                            <button id="toggleTasksButton">
+                            <button class="toggleTasksButton">
                                 Zobrazit vše
                                 <span class="las la-arrow-right">
 
@@ -387,7 +415,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table width="100%">
+                                <table class="taskTable" width="100%">
                                     <thead>
                                         <tr>
                                             <td>
@@ -556,12 +584,40 @@
                     <div class="card">
                         <div class="card-header">
                             <h3> Seznamy </h3>
-                            <button>
+                            <button class="toggle-button">
                                 Zobrazit vše
                                 <span class="las la-arrow-right"></span>
                             </button>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body customer-list">
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./img/person2.jpeg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Aleš Dudek</h4>
+                                        <small>FE - Desinger</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./img/person1.jpeg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Lenka</h4>
+                                        <small>Desinger</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
                             <div class="customer">
                                 <div class="info">
                                     <img src="./img/person2.jpeg" width="40px" height="40px" alt="">

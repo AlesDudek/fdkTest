@@ -369,8 +369,17 @@ tr td:last-child{
     margin-left: .5rem;
     color: var(--main-color);
 }
+/* seznam ukolu*/
 .taskTable tbody tr:nth-child(n+10) {
     display: none;
+}
+/*seznam kontaktu*/
+.customer-list .customer:nth-child(n+7) {
+    display: none;
+}
+
+.customer-list.show-all .customer:nth-child(n+7) {
+    display: flex;
 }
 
 /*Střed těla Střed KONEC*/
