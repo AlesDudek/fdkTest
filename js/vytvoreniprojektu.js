@@ -26,3 +26,27 @@ dropMenu.forEach(drop_menu =>{
         });
     });
 });
+
+// odesilani formulare
+function ulozitProjekt(event) {
+    event.preventDefault(); // Zabrání odeslání formuláře
+
+    // Načtení dat z formuláře
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Převedení na objekt
+    const data = Object.fromEntries(formData.entries());
+
+    // Načtení existujících projektů z localStorage
+    const projekty = JSON.parse(localStorage.getItem('projekty')) || [];
+
+    // Přidání nového projektu
+    projekty.push(data);
+
+    // Uložení do localStorage
+    localStorage.setItem('projekty', JSON.stringify(projekty));
+
+    // Přesměrování na stránku s projekty
+    window.location.href = 'mojeProjekty.html';
+}

@@ -3,7 +3,7 @@
 <head>
     <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
     <link rel="stylesheet" href="/css/fdkHome.css">
-    <link rel="stylesheet" href="./css/vytvorebiprojektu.css">
+    <link rel="stylesheet" href="./css/vytvoreniProjektu.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vytvořění Projektu</title>
@@ -35,10 +35,10 @@
                     </div>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="./mojeprojekty.html" class="dropdown-link ">Moje projekty</a>
+                            <a href="./mojeProjekty.html" class="dropdown-link ">Moje projekty</a>
                         </li>
                         <li>
-                            <a href="./vytvoreniprojektu.html" class="dropdown-link">Vytvořít Projekt</a>
+                            <a href="./vytvoreniProjektu.html" class="dropdown-link">Vytvořít Projekt</a>
                         </li>
                     </ul>
                 </li>
@@ -159,6 +159,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="recent-grid">
                 <div class="projects">
                     <div class="card">
@@ -166,62 +167,63 @@
                             <h3>Vytvořit projekt</h3>
                         </div>
                         <div class="card-body">
-                            <div class="todo-app">
-                                <h2>Přidání požadavku</h2>
-                                <div class="row">
-                                    <textarea type="text" id="input-box" placeholder="zadej text"></textarea>
-                                    <button>Přidat</button>
+                            <form onsubmit="ulozitProjekt(event)">
+                                <div class="form-group">
+                                    <label for="nazev-projektu">Název projektu</label>
+                                    <input type="text" id="nazev-projektu" name="nazev" required>
                                 </div>
-                                <div class="drop-menu">
-                                    <div class="drop_menu">
-                                        <div class="select">
-                                            <span class="selected">Projekt</span>
-                                            <div class="caret"></div>
-                                        </div>
-                                        <ul class="dropdown-name">
-                                            <li>Lenovo</li>
-                                            <li>Žižka</li>
-                                            <li>FDK</li>
-                                        </ul>
-                                    </div>
-                                    <div class="drop_menu">
-                                        <div class="select">
-                                            <span class="selected">Název</span>
-                                            <div class="caret"></div>
-                                        </div>
-                                        <ul class="dropdown-name">
-                                            <li>Testing</li>
-                                            <li>Designer</li>
-                                            <li>Back-end</li>
-                                            <li>Front-end</li>
-                                        </ul>
-                                    </div>
-                                    <div class="drop_menu">
-                                        <div class="select">
-                                            <span class="selected">Jméno</span>
-                                            <div class="caret"></div>
-                                        </div>
-                                        <ul class="dropdown-name">
-                                            <li>Lenka</li>
-                                            <li>Martin</li>
-                                            <li>Barča</li>
-                                            <li>Ales</li>
-                                            <li>Ionno</li>
-                                        </ul>
-                                    </div>
-                                    <div class="drop_menu">
-                                        <div class="select">
-                                            <span class="selected">Stav</span>
-                                            <div class="caret"></div>
-                                        </div>
-                                        <ul class="dropdown-name">
-                                            <li>testing</li>
-                                            <li>v progresu</li>
-                                            <li>zastaveno</li>
-                                        </ul>
-                                    </div>
+                            
+                                <div class="form-group">
+                                    <label for="priorita">Priorita</label>
+                                    <select id="priorita" name="priorita" required>
+                                        <option value="Vysoká">Vysoká</option>
+                                        <option value="Střední">Střední</option>
+                                        <option value="Nízká">Nízká</option>
+                                    </select>
                                 </div>
-                            </div>
+                            
+                                <div class="form-group">
+                                    <label for="popis">Popis</label>
+                                    <textarea id="popis" name="popis" rows="5" required placeholder="Text"></textarea>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label for="projektovy-manazer">Projektový manažer</label>
+                                    <input type="text" id="projektovy-manazer" name="projektovy_manazer" required placeholder="Jméno">
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label for="prirazeni">Přiřazení projektu</label>
+                                    <input type="text" id="prirazeni" name="prirazeni" required placeholder="Kdo to bude dělat">
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label for="tym">Tým</label>
+                                    <input type="text" id="tym" name="tym" required placeholder="Tester/SQL/FE/BE">
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label for="tym-schvalovatelu">Tým schvalovatelů</label>
+                                    <input type="text" id="tym-schvalovatel" name="tym_schvalovatel" required placeholder="Martin/Aleš..">
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label for="planovany-datum">Plánovaný datum dokončení</label>
+                                    <input type="date" id="planovany-datum" name="planovany_datum" required>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label for="stav">Stav průběhu</label>
+                                    <select id="stav" name="stav" required>
+                                        <option value="Probíha">Probíhá</option>
+                                        <option value="Uzavřeno">Uzavřeno</option>
+                                        <option value="Odloženo">Odloženo</option>
+                                        <option value="Nezahájeno">Nezahájeno</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit">Odeslat</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -354,7 +356,7 @@
         </main>
     </div>
     <script src="./js/fdkHome.js"></script>
-    <script src="./js/vytvoreniprojektu.js"></script>
+    <script src="./js/vytvoreniProjektu.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
