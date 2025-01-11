@@ -18,3 +18,53 @@
     box-shadow: 0 0 0.8rem rgb(58, 143, 41);
     color: chartreuse;
 }
+.projects-list{
+    padding: 10px;
+}
+/* button open text */
+.btn-toggle{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 3.1s ease;
+    background-color: #8390A2;
+}
+.btn-toggle:hover{
+    background-color: var(--main-color); /* Výchozí barva */
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 2); /* Jemný stín */
+
+}
+.btn-toggle:active{
+    transform: translateY(2px); /* Posunutí dolů o 2px při kliknutí */
+}
+/* button delete list */
+.btn-dele-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--main-color); /* Výchozí barva */
+    color: #fff;
+    background-image: linear-gradient(to right, var(--main-color), #f44336); /* Gradient pozadí */
+    background-size: 200% 100%;
+    background-position: left;
+    transition: background-position 0.5s ease-in-out, color 0.3s ease;
+}
+.btn-dele-form:hover {
+    background-position: right;
+    color: #fff;
+}
+.btn-dele-form:active {
+    transform: translateY(2px); /* Posunutí dolů o 2px při kliknutí */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 2); /* Jemný stín */
+}
+.projekt {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
