@@ -29,24 +29,35 @@ dropMenu.forEach(drop_menu =>{
 
 // odesilani formulare
 function ulozitProjekt(event) {
-    event.preventDefault(); // Zabrání odeslání formuláře
+    event.preventDefault(); // Zabrání odeslání formuláře a reloadu stránky
 
     // Načtení dat z formuláře
     const form = event.target;
     const formData = new FormData(form);
 
-    // Převedení na objekt
+    // Převedení dat na objekt
     const data = Object.fromEntries(formData.entries());
 
     // Načtení existujících projektů z localStorage
-    const projekty = JSON.parse(localStorage.getItem('projekty')) || [];
+    const projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
 
-    // Přidání nového projektu
-    projekty.push(data);
+    // Přidání unikátního ID a časové značky
+    const novyProjekt = {
+        ...data,
+        id: Date.now(), // Vygeneruje unikátní ID na základě času
+        datum_vytvoreni: new Date().toISOString() // Přidá časovou značku
+    };
 
-    // Uložení do localStorage
-    localStorage.setItem('projekty', JSON.stringify(projekty));
+    // Přidání nového projektu do pole
+    projekty.push(novyProjekt);
+
+    // Uložení aktualizovaného seznamu projektů do localStorage
+    localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
+
+    // Zobrazení potvrzení o úspěšném uložení
+    alert('Projekt byl úspěšně uložen!');
 
     // Přesměrování na stránku s projekty
     window.location.href = 'mojeProjekty.html';
 }
+
