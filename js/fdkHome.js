@@ -89,3 +89,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Funkce pro načtení projektů z localStorage a vložení do tabulky
+function zobrazitProjektyVTabulce() {
+    let projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
+    const taskTableBody = document.getElementById('taskTableBodyA');
+
+    // 🖋️ Oprava chybných stavů "Probíha" na "Probíhá" a uložení zpět do localStorage
+    projekty = projekty.map(projekt => {
+        if (projekt.stav === "Probíha") {
+            projekt.stav = "Probíhá";
+        }
+        return projekt;
+    });
+    localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
+
+    // Vyčištění tabulky před přidáním nových dat
+    taskTableBody.innerHTML = '';
+
+    // Pokud nejsou žádné projekty, zobrazí se zpráva
+    if (projekty.length === 0) {
+        taskTableBody.innerHTML = '<tr><td colspan="4">Žádné projekty nebyly nalezeny.</td></tr>';
+        return;
+    }
+
+    // Přidání projektů do tabulky
+    projekty.forEach(projekt => {
+        const tr = document.createElement('tr');
+
+        // Přiřazení správné barvy puntíku podle stavu projektu
+        let statusClass;
+        switch (projekt.stav) {
+            case 'Probíhá':
+                statusClass = 'orange';
+                break;
+            case 'Uzavřeno':
+                statusClass = 'green';
+                break;
+            case 'Odloženo':
+                statusClass = 'purple';
+                break;
+            case 'Nezahájeno':
+                statusClass = 'pink';
+                break;
+        }
+
+        // Vytvoření řádku s barevným puntíkem
+        tr.innerHTML = `
+            <td>${projekt.nazev}</td>
+            <td>${projekt.tym}</td>
+            <td>${projekt.prirazeni}</td>
+            <td><span class="status ${statusClass}"></span> ${projekt.stav}</td>
+        `;
+        taskTableBody.appendChild(tr);
+    });
+}
+
+// Načíst projekty při načtení stránky
+window.onload = function() {
+    zobrazitProjektyVTabulce();
+};

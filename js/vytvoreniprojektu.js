@@ -60,4 +60,61 @@ function ulozitProjekt(event) {
     // Přesměrování na stránku s projekty
     window.location.href = 'mojeProjekty.html';
 }
+// Funkce pro uložení projektu do localStorage
+function ulozitProjekt(event) {
+    event.preventDefault(); // Zabránění reloadu stránky po odeslání formuláře
+
+    // Načtení dat z formuláře
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Převedení dat na objekt
+    const data = Object.fromEntries(formData.entries());
+    //  Oprava stavu projektu, pokud je nesprávný
+    if (data.stav === "Probíha") {
+        data.stav = "Probíhá";
+    }
+
+    // Přiřazení správné CSS třídy podle stavu projektu
+    let statusClass;
+    switch (data.stav) {
+        case "Probíhá":
+            statusClass = "purple";
+            break;
+        case "Uzavřeno":
+            statusClass = "green";
+            break;
+        case "Odloženo":
+            statusClass = "orange";
+            break;
+        case "Nezahájeno":
+            statusClass = "pink";
+            break;
+    }
+
+    // Přidání unikátního ID, časové značky a CSS třídy pro stav
+    const novyProjekt = {
+        ...data,
+        id: Date.now(),
+        datum_vytvoreni: new Date().toISOString(),
+        statusClass: statusClass
+    };
+
+    // Načtení existujících projektů z localStorage
+    const projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
+
+    // Přidání nového projektu do pole
+    projekty.push(novyProjekt);
+
+    // Uložení aktualizovaného seznamu projektů do localStorage
+    localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
+
+    // Zobrazení potvrzení o úspěšném uložení
+    alert('Projekt byl úspěšně uložen!');
+
+    // Přesměrování na hlavní stránku
+    window.location.href = 'fdkHome.html';
+}
+
+
 
