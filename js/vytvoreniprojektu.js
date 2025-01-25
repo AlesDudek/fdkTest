@@ -28,100 +28,81 @@ dropMenu.forEach(drop_menu =>{
 });
 
 // odesilani formulare
-function ulozitProjektDoMojeProjekty(event) {
-    event.preventDefault(); // Zabrání odeslání formuláře a reloadu stránky
+// Funkce pro aktualizaci počtu projektů podle týmu
+// Funkce pro aktualizaci počtu projektů podle týmu
+function aktualizovatPocetProjektuPodleTymu(tym) {
+    console.log("Aktualizace pro tým:", tym); // Sledujeme tým, který aktualizujeme
 
-    // Načtení dat z formuláře
-    const form = event.target;
-    const formData = new FormData(form);
+    const card = Array.from(document.querySelectorAll('.card-single')).find(card =>
+        card.querySelector('span').textContent.trim() === tym
+    );
 
-    // Převedení dat na objekt
-    const data = Object.fromEntries(formData.entries());
+    if (card) {
+        const countElement = card.querySelector('h1');
+        const currentCount = parseInt(countElement.textContent, 10) || 0;
+        countElement.textContent = currentCount + 1;
 
-    // Načtení existujících projektů z localStorage
+        console.log(`Nový počet projektů pro tým ${tym}:`, currentCount + 1); // Kontrola aktualizovaného počtu
+    } else {
+        console.warn(`Karta pro tým ${tym} nebyla nalezena.`);
+    }
+}
+
+
+// Funkce pro načtení a aktualizaci všech týmů při načtení stránky
+function aktualizovatVsechnyPocetProjektu() {
     const projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
 
-    // Přidání unikátního ID a časové značky
+    const frontEndCount = projekty.filter(projekt => projekt.tym === 'Front-end').length;
+    const backEndCount = projekty.filter(projekt => projekt.tym === 'Back-end').length;
+    const sqlCount = projekty.filter(projekt => projekt.tym === 'SQL').length;
+    const testersCount = projekty.filter(projekt => projekt.tym === 'Testers').length;
+
+    // Aktualizace hodnot na stránce
+    document.querySelector('.card-single:nth-child(1) h1').innerText = frontEndCount;
+    document.querySelector('.card-single:nth-child(2) h1').innerText = backEndCount;
+    document.querySelector('.card-single:nth-child(3) h1').innerText = sqlCount;
+    document.querySelector('.card-single:nth-child(4) h1').innerText = testersCount;
+}
+
+// Funkce pro uložení projektu do localStorage
+function ulozitProjektDoFdkHome(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    console.log("Odeslaný tým:", data.tym); // Zde logujeme odeslaný tým
+
+    // Oprava chybného stavu "Probíha" na "Probíhá"
+    if (data.stav === "Probíha") {
+        data.stav = "Probíhá";
+    }
+
     const novyProjekt = {
         ...data,
         id: Date.now(),
         datum_vytvoreni: new Date().toISOString()
     };
 
-    // Přidání nového projektu do pole
-    projekty.push(novyProjekt);
-
-    // Uložení aktualizovaného seznamu projektů do localStorage
-    localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
-
-    // Zobrazení potvrzení o úspěšném uložení
-    alert('Projekt byl úspěšně uložen!');
-
-    // Přesměrování na stránku s projekty
-    window.location.href = 'mojeProjekty.html';
-}
-
-
-
-// Funkce pro uložení projektu do localStorage
-function ulozitProjektDoFdkHome(event) {
-    event.preventDefault(); // Zabránění reloadu stránky po odeslání formuláře
-
-    // Načtení dat z formuláře
-    const form = event.target;
-    const formData = new FormData(form);
-
-    // Převedení dat na objekt
-    const data = Object.fromEntries(formData.entries());
-
-    // Oprava stavu projektu, pokud je nesprávný
-    if (data.stav === "Probíha") {
-        data.stav = "Probíhá";
-    }
-
-    // Přiřazení správné CSS třídy podle stavu projektu
-    let statusClass;
-    switch (data.stav) {
-        case "Probíhá":
-            statusClass = "purple";
-            break;
-        case "Uzavřeno":
-            statusClass = "green";
-            break;
-        case "Odloženo":
-            statusClass = "orange";
-            break;
-        case "Nezahájeno":
-            statusClass = "pink";
-            break;
-    }
-
-    // Přidání unikátního ID, časové značky a CSS třídy pro stav
-    const novyProjekt = {
-        ...data,
-        id: Date.now(),
-        datum_vytvoreni: new Date().toISOString(),
-        statusClass: statusClass
-    };
-
-    // Načtení existujících projektů z localStorage
     const projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
-
-    // Přidání nového projektu do pole
     projekty.push(novyProjekt);
-
-    // Uložení aktualizovaného seznamu projektů do localStorage
     localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
+    console.log("LocalStorage data:", JSON.parse(localStorage.getItem('projektA_projekty'))); // Kontrola uložených dat
 
-    // Aktualizace počtu projektů pro příslušný tým
-    aktualizovatPocetProjektu(data.tym);
+    // Aktualizace konkrétního týmu
+    aktualizovatPocetProjektuPodleTymu(data.tym);
 
-    // Zobrazení potvrzení o úspěšném uložení
     alert('Projekt byl úspěšně uložen!');
-
-    // Přesměrování na hlavní stránku
     window.location.href = 'fdkHome.html';
 }
+
+// Při načtení stránky aktualizovat všechny počty projektů
+window.onload = function () {
+    aktualizovatVsechnyPocetProjektu();
+};
+
+
 
 
 
