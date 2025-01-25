@@ -113,18 +113,33 @@ dropdownItems.forEach(item => {
         }
     }
 
+    
+    //odstraneni projektu
     window.odstranitProjektA = function (index) {
         const projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
-        projekty.splice(index, 1); // Odstranění projektu podle indexu
+    
+        // Odstranit projekt z localStorage
+        projekty.splice(index, 1);
         localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
-        zobrazProjektyA(); // Znovu vykreslit seznam
+    
+        // Najít a odstranit DOM element přímo, aby se menu nezavíralo
+        const projektyContainer = document.getElementById('projektA-container');
+        const projektElement = projektyContainer.getElementsByClassName('projektA')[index];
+    
+        if (projektElement) {
+            projektElement.remove(); // Odstranění projektu z DOMu
+        }
+    
+        // Aktualizace tlačítka zobrazit/schovat vše
+        updateToggleButtonA(projektyContainer.getElementsByClassName('projektA').length - 1);
     };
-
+    
     // 🖋 Funkce pro formátování datumu (YYYY-MM-DD -> DD.MM.RRRR)
     function formatDatum(datum) {
         const [year, month, day] = datum.split('-');
         return `${day}.${month}.${year}`;
     }
+    
 })();
 
 

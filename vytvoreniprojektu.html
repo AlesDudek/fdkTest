@@ -143,7 +143,7 @@
                 <div class="card-single">
                     <div class="">
                         <h1>0</h1>
-                        <span>Designer</span>
+                        <span>SQL</span>
                     </div>
                     <div>
                         <span class="las la-shopping-bag"></span>
@@ -167,7 +167,7 @@
                             <h3>Vytvořit projekt</h3>
                         </div>
                         <div class="card-body">
-                            <form onsubmit="ulozitProjekt(event)">
+                            <form onsubmit="ulozitProjektDoFdkHome(event)">
                                 <div class="form-group">
                                     <label for="nazev-projektu">Název projektu</label>
                                     <input type="text" id="nazev-projektu" name="nazev" required>
@@ -211,7 +211,7 @@
                                     <label for="planovany-datum">Plánovaný datum dokončení</label>
                                     <input type="date" id="planovany-datum" name="planovany_datum" required>
                                 </div>
-                            
+
                                 <div class="form-group">
                                     <label for="stav">Stav průběhu</label>
                                     <select id="stav" name="stav" required>

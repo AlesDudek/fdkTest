@@ -28,7 +28,7 @@ dropMenu.forEach(drop_menu =>{
 });
 
 // odesilani formulare
-function ulozitProjekt(event) {
+function ulozitProjektDoMojeProjekty(event) {
     event.preventDefault(); // Zabrání odeslání formuláře a reloadu stránky
 
     // Načtení dat z formuláře
@@ -44,8 +44,8 @@ function ulozitProjekt(event) {
     // Přidání unikátního ID a časové značky
     const novyProjekt = {
         ...data,
-        id: Date.now(), // Vygeneruje unikátní ID na základě času
-        datum_vytvoreni: new Date().toISOString() // Přidá časovou značku
+        id: Date.now(),
+        datum_vytvoreni: new Date().toISOString()
     };
 
     // Přidání nového projektu do pole
@@ -60,8 +60,48 @@ function ulozitProjekt(event) {
     // Přesměrování na stránku s projekty
     window.location.href = 'mojeProjekty.html';
 }
+// function ulozitProjekt(event) {
+//     event.preventDefault(); // Zabrání odeslání formuláře a reloadu stránky
+
+//     // Načtení dat z formuláře
+//     const form = event.target;
+//     const formData = new FormData(form);
+
+//     // Převedení dat na objekt
+//     const data = Object.fromEntries(formData.entries());
+
+//     // Načtení existujících projektů z localStorage
+//     const projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
+
+//     // Přidání unikátního ID a časové značky
+//     // const novyProjekt = {
+//     //     ...data,
+//     //     id: Date.now(), // Vygeneruje unikátní ID na základě času
+//     //     datum_vytvoreni: new Date().toISOString() // Přidá časovou značku
+//     // };
+//     const novyProjekt = {
+//         ...data,
+//         id: Date.now(),
+//         datum_vytvoreni: new Date().toISOString(),
+//         statusClass: statusClass
+//     };
+
+//     // Přidání nového projektu do pole
+//     projekty.push(novyProjekt);
+
+//     // Uložení aktualizovaného seznamu projektů do localStorage
+//     localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
+
+//     // Zobrazení potvrzení o úspěšném uložení
+//     alert('Projekt byl úspěšně uložen!');
+
+//     // Přesměrování na stránku s projekty
+//     window.location.href = 'mojeProjekty.html';
+// }
+
+
 // Funkce pro uložení projektu do localStorage
-function ulozitProjekt(event) {
+function ulozitProjektDoFdkHome(event) {
     event.preventDefault(); // Zabránění reloadu stránky po odeslání formuláře
 
     // Načtení dat z formuláře
@@ -70,7 +110,8 @@ function ulozitProjekt(event) {
 
     // Převedení dat na objekt
     const data = Object.fromEntries(formData.entries());
-    //  Oprava stavu projektu, pokud je nesprávný
+
+    // Oprava stavu projektu, pokud je nesprávný
     if (data.stav === "Probíha") {
         data.stav = "Probíhá";
     }
@@ -109,12 +150,70 @@ function ulozitProjekt(event) {
     // Uložení aktualizovaného seznamu projektů do localStorage
     localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
 
+    // Aktualizace statusů na stránce
+    aktualizovatPocetProjektu();
+
     // Zobrazení potvrzení o úspěšném uložení
     alert('Projekt byl úspěšně uložen!');
 
     // Přesměrování na hlavní stránku
     window.location.href = 'fdkHome.html';
 }
+
+// function ulozitProjekt(event) {
+//     event.preventDefault(); // Zabránění reloadu stránky po odeslání formuláře
+
+//     // Načtení dat z formuláře
+//     const form = event.target;
+//     const formData = new FormData(form);
+
+//     // Převedení dat na objekt
+//     const data = Object.fromEntries(formData.entries());
+//     //  Oprava stavu projektu, pokud je nesprávný
+//     if (data.stav === "Probíhá") {
+//         data.stav = "Probíhá";
+//     }
+
+//     // Přiřazení správné CSS třídy podle stavu projektu
+//     let statusClass;
+//     switch (data.stav) {
+//         case "Probíhá":
+//             statusClass = "purple";
+//             break;
+//         case "Uzavřeno":
+//             statusClass = "green";
+//             break;
+//         case "Odloženo":
+//             statusClass = "orange";
+//             break;
+//         case "Nezahájeno":
+//             statusClass = "pink";
+//             break;
+//     }
+
+//     // Přidání unikátního ID, časové značky a CSS třídy pro stav
+//     const novyProjekt = {
+//         ...data,
+//         id: Date.now(),
+//         datum_vytvoreni: new Date().toISOString(),
+//         statusClass: statusClass
+//     };
+
+//     // Načtení existujících projektů z localStorage
+//     const projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
+
+//     // Přidání nového projektu do pole
+//     projekty.push(novyProjekt);
+
+//     // Uložení aktualizovaného seznamu projektů do localStorage
+//     localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
+
+//     // Zobrazení potvrzení o úspěšném uložení
+//     alert('Projekt byl úspěšně uložen!');
+
+//     // Přesměrování na hlavní stránku
+//     window.location.href = 'fdkHome.html';
+// }
 
 
 

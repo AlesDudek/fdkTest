@@ -67,6 +67,7 @@ toggleButtons.forEach((button, index) => {
         }
     });
 });
+
 /*zobrazeni kolegove a kontakty*/
 document.addEventListener('DOMContentLoaded', function() {
     const toggleButtons = document.querySelectorAll('.toggle-button');
@@ -97,7 +98,7 @@ function zobrazitProjektyVTabulce() {
 
     // 🖋️ Oprava chybných stavů "Probíha" na "Probíhá" a uložení zpět do localStorage
     projekty = projekty.map(projekt => {
-        if (projekt.stav === "Probíha") {
+        if (projekt.stav === "Probíhá") {
             projekt.stav = "Probíhá";
         }
         return projekt;
@@ -149,3 +150,19 @@ function zobrazitProjektyVTabulce() {
 window.onload = function() {
     zobrazitProjektyVTabulce();
 };
+
+function aktualizovatPocetProjektu() {
+    const projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
+
+    const frontEndCount = projekty.filter(projekt => projekt.tym === 'Front-end').length;
+    const backEndCount = projekty.filter(projekt => projekt.tym === 'Back-end').length;
+    const sqlCount = projekty.filter(projekt => projekt.tym === 'SQL').length;
+    const testersCount = projekty.filter(projekt => projekt.tym === 'Testers').length;
+
+    // Aktualizace počtu na stránce
+    document.querySelector('.card-single:nth-child(1) h1').innerText = frontEndCount;
+    document.querySelector('.card-single:nth-child(2) h1').innerText = backEndCount;
+    document.querySelector('.card-single:nth-child(3) h1').innerText = sqlCount;
+    document.querySelector('.card-single:nth-child(4) h1').innerText = testersCount;
+}
+
