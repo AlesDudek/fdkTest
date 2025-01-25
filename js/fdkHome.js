@@ -96,9 +96,9 @@ function zobrazitProjektyVTabulce() {
     let projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
     const taskTableBody = document.getElementById('taskTableBodyA');
 
-    // 🖋️ Oprava chybných stavů "Probíha" na "Probíhá" a uložení zpět do localStorage
+    // Oprava chybných stavů "Probíha" na "Probíhá"
     projekty = projekty.map(projekt => {
-        if (projekt.stav === "Probíhá") {
+        if (projekt.stav === "Probíha") {
             projekt.stav = "Probíhá";
         }
         return projekt;
@@ -135,7 +135,7 @@ function zobrazitProjektyVTabulce() {
                 break;
         }
 
-        // Vytvoření řádku s barevným puntíkem
+        // Vytvoření řádku s daty projektu
         tr.innerHTML = `
             <td>${projekt.nazev}</td>
             <td>${projekt.tym}</td>
@@ -145,6 +145,60 @@ function zobrazitProjektyVTabulce() {
         taskTableBody.appendChild(tr);
     });
 }
+
+// function zobrazitProjektyVTabulce() {
+//     let projekty = JSON.parse(localStorage.getItem('projektA_projekty')) || [];
+//     const taskTableBody = document.getElementById('taskTableBodyA');
+
+//     // 🖋️ Oprava chybných stavů "Probíha" na "Probíhá" a uložení zpět do localStorage
+//     projekty = projekty.map(projekt => {
+//         if (projekt.stav === "Probíhá") {
+//             projekt.stav = "Probíhá";
+//         }
+//         return projekt;
+//     });
+//     localStorage.setItem('projektA_projekty', JSON.stringify(projekty));
+
+//     // Vyčištění tabulky před přidáním nových dat
+//     taskTableBody.innerHTML = '';
+
+//     // Pokud nejsou žádné projekty, zobrazí se zpráva
+//     if (projekty.length === 0) {
+//         taskTableBody.innerHTML = '<tr><td colspan="4">Žádné projekty nebyly nalezeny.</td></tr>';
+//         return;
+//     }
+
+//     // Přidání projektů do tabulky
+//     projekty.forEach(projekt => {
+//         const tr = document.createElement('tr');
+
+//         // Přiřazení správné barvy puntíku podle stavu projektu
+//         let statusClass;
+//         switch (projekt.stav) {
+//             case 'Probíhá':
+//                 statusClass = 'orange';
+//                 break;
+//             case 'Uzavřeno':
+//                 statusClass = 'green';
+//                 break;
+//             case 'Odloženo':
+//                 statusClass = 'purple';
+//                 break;
+//             case 'Nezahájeno':
+//                 statusClass = 'pink';
+//                 break;
+//         }
+
+//         // Vytvoření řádku s barevným puntíkem
+//         tr.innerHTML = `
+//             <td>${projekt.nazev}</td>
+//             <td>${projekt.tym}</td>
+//             <td>${projekt.prirazeni}</td>
+//             <td><span class="status ${statusClass}"></span> ${projekt.stav}</td>
+//         `;
+//         taskTableBody.appendChild(tr);
+//     });
+// }
 
 // Načíst projekty při načtení stránky
 window.onload = function() {
@@ -166,3 +220,15 @@ function aktualizovatPocetProjektu() {
     document.querySelector('.card-single:nth-child(4) h1').innerText = testersCount;
 }
 
+function aktualizovatPocetProjektu(tym) {
+    // Najít kartu odpovídající týmu
+    const card = Array.from(document.querySelectorAll('.card-single')).find(card =>
+        card.querySelector('span').textContent.trim() === tym
+    );
+
+    if (card) {
+        const countElement = card.querySelector('h1');
+        const currentCount = parseInt(countElement.textContent, 10);
+        countElement.textContent = currentCount + 1; // Zvýšení počtu projektů
+    }
+}
